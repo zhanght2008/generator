@@ -14,11 +14,12 @@ import org.mybatis.generator.internal.DefaultShellCallback;
 
 public class MyBatisGeneratorTest {
 
-    @Test(expected=InvalidConfigurationException.class)
+//    @Test(expected=InvalidConfigurationException.class)
+	@Test
     public void testGenerateMyBatis3() throws Exception {
         List<String> warnings = new ArrayList<String>();
         ConfigurationParser cp = new ConfigurationParser(warnings);
-        Configuration config = cp.parseConfiguration(this.getClass().getClassLoader().getResourceAsStream("generatorConfigMyBatis3.xml"));
+        Configuration config = cp.parseConfiguration(this.getClass().getClassLoader().getResourceAsStream("generatorConfigMyBatis3_1_1.xml"));
             
         DefaultShellCallback shellCallback = new DefaultShellCallback(true);
         
@@ -26,6 +27,10 @@ public class MyBatisGeneratorTest {
             MyBatisGenerator myBatisGenerator = new MyBatisGenerator(config, shellCallback, warnings);
             myBatisGenerator.generate(null);
         } catch (InvalidConfigurationException e) {
+        	List<String> erros=e.getErrors();
+        	for (String item : erros) {
+				System.out.println(item);
+			}
             assertEquals(2, e.getErrors().size());
             throw e;
         }

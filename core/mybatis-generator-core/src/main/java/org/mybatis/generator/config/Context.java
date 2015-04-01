@@ -67,7 +67,18 @@ public class Context extends PropertyHolder {
     /** The java client generator configuration. */
     private JavaClientGeneratorConfiguration javaClientGeneratorConfiguration;
 
-    /** The table configurations. */
+    private JavaServiceGeneratorConfiguration javaServiceGeneratorConfiguration;
+    
+    public JavaServiceGeneratorConfiguration getJavaServiceGeneratorConfiguration() {
+		return javaServiceGeneratorConfiguration;
+	}
+
+	public void setJavaServiceGeneratorConfiguration(
+			JavaServiceGeneratorConfiguration javaServiceGeneratorConfiguration) {
+		this.javaServiceGeneratorConfiguration = javaServiceGeneratorConfiguration;
+	}
+
+	/** The table configurations. */
     private ArrayList<TableConfiguration> tableConfigurations;
 
     /** The default model type. */
@@ -218,14 +229,16 @@ public class Context extends PropertyHolder {
         if (javaClientGeneratorConfiguration != null) {
             javaClientGeneratorConfiguration.validate(errors, id);
         }
-
+		
         IntrospectedTable it = null;
         try {
+        //  KS entry 验证表并确定使用IntrospectedTableMyBatis3Impl实现类
             it = ObjectFactory.createIntrospectedTableForValidation(this);
         } catch (Exception e) {
             errors.add(getString("ValidationError.25", id)); //$NON-NLS-1$
         }
         
+        // KS 2_1
         if (it != null && it.requiresXMLGenerator()) {
             if (sqlMapGeneratorConfiguration == null) {
                 errors.add(getString("ValidationError.9", id)); //$NON-NLS-1$
@@ -703,7 +716,7 @@ public class Context extends PropertyHolder {
         if (introspectedTables != null) {
             for (IntrospectedTable introspectedTable : introspectedTables) {
                 callback.checkCancel();
-
+//KS IntrospectedTable的子类IntrospectedTableMyBatis3Impl 调用
                 introspectedTable.initialize();
                 introspectedTable.calculateGenerators(warnings, callback);
                 generatedJavaFiles.addAll(introspectedTable

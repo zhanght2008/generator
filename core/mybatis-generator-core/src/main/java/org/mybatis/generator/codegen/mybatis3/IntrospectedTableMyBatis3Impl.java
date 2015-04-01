@@ -70,6 +70,7 @@ public class IntrospectedTableMyBatis3Impl extends IntrospectedTable {
     @Override
     public void calculateGenerators(List<String> warnings,
             ProgressCallback progressCallback) {
+		//KS 0 calculateGenerators 计算生成代码
         calculateJavaModelGenerators(warnings, progressCallback);
         
         AbstractJavaClientGenerator javaClientGenerator =
@@ -169,6 +170,7 @@ public class IntrospectedTableMyBatis3Impl extends IntrospectedTable {
      */
     protected void calculateJavaModelGenerators(List<String> warnings,
             ProgressCallback progressCallback) {
+    	//KS Key:rules generator 判定选择哪种类型的代码生成Generator
         if (getRules().generateExampleClass()) {
             AbstractJavaGenerator javaGenerator = new ExampleGenerator();
             initializeAbstractGenerator(javaGenerator, warnings,
@@ -226,6 +228,7 @@ public class IntrospectedTableMyBatis3Impl extends IntrospectedTable {
      */
     @Override
     public List<GeneratedJavaFile> getGeneratedJavaFiles() {
+    	//KS 1 getGeneratedJavaFiles 获取生成的Java文件内容
         List<GeneratedJavaFile> answer = new ArrayList<GeneratedJavaFile>();
 
         for (AbstractJavaGenerator javaGenerator : javaModelGenerators) {
@@ -263,7 +266,7 @@ public class IntrospectedTableMyBatis3Impl extends IntrospectedTable {
     @Override
     public List<GeneratedXmlFile> getGeneratedXmlFiles() {
         List<GeneratedXmlFile> answer = new ArrayList<GeneratedXmlFile>();
-
+      //KS 2 getGeneratedJavaFiles 获取生成的xml文件内容
         if (xmlMapperGenerator != null) {
             Document document = xmlMapperGenerator.getDocument();
             GeneratedXmlFile gxf = new GeneratedXmlFile(document,

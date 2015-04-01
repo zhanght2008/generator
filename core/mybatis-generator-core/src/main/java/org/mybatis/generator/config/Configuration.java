@@ -91,6 +91,7 @@ public class Configuration {
             errors.add(getString("ValidationError.11")); //$NON-NLS-1$
         } else {
             for (Context context : contexts) {
+            	//KS 1
                 context.validate(errors);
             }
         }

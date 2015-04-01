@@ -109,6 +109,7 @@ public class ShellRunner {
             DefaultShellCallback shellCallback = new DefaultShellCallback(
                     arguments.containsKey(OVERWRITE));
 
+            // KS 构造生成器
             MyBatisGenerator myBatisGenerator = new MyBatisGenerator(config, shellCallback, warnings);
 
             ProgressCallback progressCallback = arguments.containsKey(VERBOSE) ? new VerboseProgressCallback()

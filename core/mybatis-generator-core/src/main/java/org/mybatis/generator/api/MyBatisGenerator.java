@@ -115,6 +115,7 @@ public class MyBatisGenerator {
         generatedXmlFiles = new ArrayList<GeneratedXmlFile>();
         projects = new HashSet<String>();
 
+//        KS entry 构造函数 验证配置
         this.configuration.validate();
     }
 
@@ -194,6 +195,7 @@ public class MyBatisGenerator {
         generatedXmlFiles.clear();
 
         // calculate the contexts to run
+        // KS entry 初始化配置
         List<Context> contextsToRun;
         if (contextIds == null || contextIds.size() == 0) {
             contextsToRun = configuration.getContexts();
@@ -209,7 +211,9 @@ public class MyBatisGenerator {
         // setup custom classloader if required
         if (configuration.getClassPathEntries().size() > 0) {
             ClassLoader classLoader = getCustomClassloader(configuration.getClassPathEntries());
+            //KS entry
             ObjectFactory.addExternalClassLoader(classLoader);
+            
         }
 
         // now run the introspections...
@@ -220,6 +224,7 @@ public class MyBatisGenerator {
         callback.introspectionStarted(totalSteps);
 
         for (Context context : contextsToRun) {
+        	//KS entry context.introspectTables 连接数据库 生成表配置相关信息，存储在Context的introspectedTables 变量中
             context.introspectTables(callback, warnings,
                     fullyQualifiedTableNames);
         }
@@ -232,6 +237,7 @@ public class MyBatisGenerator {
         callback.generationStarted(totalSteps);
 
         for (Context context : contextsToRun) {
+        	//KS entry context.generateFiles 根据Context的introspectedTables变量中的表信息 生成文件内容
             context.generateFiles(callback, generatedJavaFiles,
                     generatedXmlFiles, warnings);
         }

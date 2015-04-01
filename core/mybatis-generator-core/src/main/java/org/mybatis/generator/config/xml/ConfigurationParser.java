@@ -131,6 +131,7 @@ public class ConfigurationParser {
             } else if (rootNode.getNodeType() == Node.ELEMENT_NODE
                     && docType.getPublicId().equals(
                             XmlConstants.MYBATIS_GENERATOR_CONFIG_PUBLIC_ID)) {
+            	//KS key:xml 解析配置文件 生成配置类
                 config = parseMyBatisGeneratorConfiguration(rootNode);
             } else {
                 throw new XMLParserException(getString("RuntimeError.5")); //$NON-NLS-1$
@@ -154,6 +155,7 @@ public class ConfigurationParser {
         return parser.parseIbatorConfiguration(rootNode);
     }
 
+    //KS 抽象类ConfigurationParser 解析Configuration文档
     private Configuration parseMyBatisGeneratorConfiguration(Element rootNode)
             throws XMLParserException {
         MyBatisGeneratorConfigurationParser parser = new MyBatisGeneratorConfigurationParser(

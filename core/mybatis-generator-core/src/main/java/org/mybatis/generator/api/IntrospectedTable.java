@@ -748,9 +748,11 @@ public abstract class IntrospectedTable {
      */
     public void initialize() {
         calculateJavaClientAttributes();
+        calculateJavaServiceAttributes();
         calculateModelAttributes();
         calculateXmlAttributes();
 
+//        KS key:init rules 初始化表是 根据表的配置信息，定义rules，再由rules确定使用哪种Generator 
         if (tableConfiguration.getModelType() == ModelType.HIERARCHICAL) {
             rules = new HierarchicalModelRules(this);
         } else if (tableConfiguration.getModelType() == ModelType.FLAT) {
@@ -762,7 +764,29 @@ public abstract class IntrospectedTable {
         context.getPlugins().initialized(this);
     }
 
-    /**
+    private void calculateJavaServiceAttributes() {
+    	if (context.getJavaServiceGeneratorConfiguration() == null) {
+            return;
+        }
+
+        StringBuilder sb = new StringBuilder();    
+
+
+        sb.setLength(0);
+        sb.append(calculateJavaClientInterfacePackage());
+        sb.append('.');
+        sb.append(fullyQualifiedTable.getDomainObjectName());
+        sb.append("Service"); //$NON-NLS-1$
+        setMyBatis3JavaServiceType(sb.toString());       
+		
+	}
+
+	private void setMyBatis3JavaServiceType(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	/**
      * Calculate xml attributes.
      */
     protected void calculateXmlAttributes() {
