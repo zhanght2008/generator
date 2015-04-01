@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC
+ "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+ "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<!-- This should cause an error because sqlMapGenerator is required if there 
+		is no javaClientGenerator -->
+	<context id="MyBatis3NoClient" targetRuntime="MyBatis3"
+		defaultModelType="flat">
+		<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
+
+		<jdbcConnection driverClass="org.hsqldb.jdbcDriver"
+			connectionURL="jdbc:hsqldb:mem:aname" userId="sa" />
+
+		<javaModelGenerator targetPackage="ibatortest.generated.flat.java5.model"
+			targetProject="target/generated-sources/mybatis-generator/mybatis3">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+		<javaServiceGenerator targetPackage="ibatortest.generated.flat.java5.service"
+			targetProject="target/generated-sources/mybatis-generator/mybatis3">
+			
+		</javaServiceGenerator>
+
+
+		<table tableName="FieldsOnly" />
+
+	</context>
+
+	<!-- This should cause an error because sqlMapGenerator is required for 
+		the XMLMAPPER client -->
+	<context id="MyBatis3XMLMapper" targetRuntime="MyBatis3"
+		defaultModelType="flat">
+		<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
+
+		<jdbcConnection driverClass="org.hsqldb.jdbcDriver"
+			connectionURL="jdbc:hsqldb:mem:aname" userId="sa" />
+
+		<javaModelGenerator targetPackage="ibatortest.generated.flat.java5.model"
+			targetProject="target/generated-sources/mybatis-generator/mybatis3">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+		<sqlMapGenerator targetPackage="ibatortest.generated.flat.java5.mapper"
+			targetProject="target/generated-sources/mybatis-generator/mybatis3" />
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="ibatortest.generated.flat.java5.client" targetProject="target/generated-sources/mybatis-generator/mybatis3">
+		</javaClientGenerator>
+
+		<table tableName="FieldsOnly" />
+
+	</context>
+
+	<!-- This should cause an error because sqlMapGenerator is required for 
+		the MIXEDMAPPER client -->
+	<context id="MyBatis3MixedMapper" targetRuntime="MyBatis3"
+		defaultModelType="flat">
+		<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
+
+		<jdbcConnection driverClass="org.hsqldb.jdbcDriver"
+			connectionURL="jdbc:hsqldb:mem:aname" userId="sa" />
+
+		<javaModelGenerator targetPackage="ibatortest.generated.flat.java5.model"
+			targetProject="target/generated-sources/mybatis-generator/mybatis3">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+		<sqlMapGenerator targetPackage="ibatortest.generated.flat.java5.mapper"
+			targetProject="target/generated-sources/mybatis-generator/mybatis3" />
+		<javaClientGenerator type="MIXEDMAPPER"
+			targetPackage="ibatortest.generated.flat.java5.client" targetProject="target/generated-sources/mybatis-generator/mybatis3">
+		</javaClientGenerator>
+
+		<table tableName="FieldsOnly" />
+
+	</context>
+
+	<!-- This should not cause an error because sqlMapGenerator is not required 
+		for the ANNOTATEDMAPPER client -->
+	<context id="MyBatis3AnnotatedMapper" targetRuntime="MyBatis3"
+		defaultModelType="flat">
+		<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
+
+		<jdbcConnection driverClass="org.hsqldb.jdbcDriver"
+			connectionURL="jdbc:hsqldb:mem:aname" userId="sa" />
+
+		<javaModelGenerator targetPackage="ibatortest.generated.flat.java5.model"
+			targetProject="target/generated-sources/mybatis-generator/mybatis3">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<javaClientGenerator type="ANNOTATEDMAPPER"
+			targetPackage="ibatortest.generated.flat.java5.client" targetProject="target/generated-sources/mybatis-generator/mybatis3">
+		</javaClientGenerator>
+
+		<table tableName="FieldsOnly" />
+	</context>
+</generatorConfiguration>
