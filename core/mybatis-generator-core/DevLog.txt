@@ -1,0 +1,8 @@
+1、程序入口点 org.mybatis.generator.api.ShellRunner
+2、DefaultShellCallback 创建项目目录等文件
+3、Configuration 和ConfigurationParser，Context 解析xml文件
+
+
+key:
+1、java.util.ResourceBundle使用详解  http://lavasoft.blog.51cto.com/62575/184605/
+StringTokenizer
