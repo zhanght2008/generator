@@ -79,13 +79,13 @@ public class FullyQualifiedJavaType implements
     private List<FullyQualifiedJavaType> typeArguments;
 
     // the following three values are used for dealing with wildcard types
-    /** The wildcard type. */
+    /** The wildcard type. 通配符类型 */ 
     private boolean wildcardType;
     
-    /** The bounded wildcard. */
+    /** The bounded wildcard. 有界限的通配符 */
     private boolean boundedWildcard;
     
-    /** The extends bounded wildcard. */
+    /** The extends bounded wildcard. 扩展的有界限的通配符 */
     private boolean extendsBoundedWildcard;
 
     /**
@@ -269,7 +269,7 @@ public class FullyQualifiedJavaType implements
     }
 
     /**
-     * Checks if is primitive.
+     * Checks if is primitive.原始的
      *
      * @return Returns the primitive.
      */
@@ -278,7 +278,7 @@ public class FullyQualifiedJavaType implements
     }
 
     /**
-     * Gets the primitive type wrapper.
+     * Gets the primitive type wrapper. 原始类型的包装器
      *
      * @return Returns the wrapperClass.
      */
@@ -287,7 +287,7 @@ public class FullyQualifiedJavaType implements
     }
 
     /**
-     * Gets the int instance.
+     * Gets the int instance. 获取整形int的实例
      *
      * @return the int instance
      */
@@ -300,7 +300,7 @@ public class FullyQualifiedJavaType implements
     }
 
     /**
-     * Gets the new map instance.
+     * Gets the new map instance. 获取java.util.Map的实例
      *
      * @return the new map instance
      */
@@ -310,7 +310,7 @@ public class FullyQualifiedJavaType implements
     }
 
     /**
-     * Gets the new list instance.
+     * Gets the new list instance.java.util.Map  获取java.util.List的实例
      *
      * @return the new list instance
      */
@@ -320,7 +320,7 @@ public class FullyQualifiedJavaType implements
     }
 
     /**
-     * Gets the new hash map instance.
+     * Gets the new hash map instance.  获取java.util.HashMap的实例
      *
      * @return the new hash map instance
      */
@@ -363,7 +363,7 @@ public class FullyQualifiedJavaType implements
     }
 
     /**
-     * Gets the boolean primitive instance.
+     * Gets the boolean primitive instance. 获取boolean原生类型的实例
      *
      * @return the boolean primitive instance
      */

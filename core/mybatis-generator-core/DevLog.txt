@@ -1,9 +1,19 @@
 1  入口点 org.mybatis.generator.api.ShellRunner
 2  DefaultShellCallback 
 3  Configuration ConfigurationParser
-4	Context的generateFiles()方法里通过调用IntrospectedTable的initialize()
-		和其实现类IntrospectedTableMyBatis3Impl的
-			calculateGenerators()、getGeneratedJavaFiles方法生成代码内容
+4	Context的generateFiles()方法里通过调用
+		IntrospectedTable的initialize()
+				设置rules
+		IntrospectedTableMyBatis3Impl的
+			calculateGenerators()通过调用
+					calculateJavaModelGenerators
+							选择BaseRecordGenerator类做为生成类generator
+					AbstractJavaClientGenerator
+					calculateXmlMapperGenerator
+					生成代码 
+			
+			getGeneratedJavaFiles
+			getGeneratedXmlFiles方法获得代码内容
 			
 			
 		  JDBCConnectionConfiguration
@@ -26,6 +36,14 @@
 		  		GeneratedJavaFile  抽象类  
 		  		GeneratedXmlFile	抽象类
 		  		GeneratedFile  
+		  		
+4、生成类元素涉及的类包括
+		JavaVisibility
+		CompilationUnit
+		JavaElement
+			InnerClass  InnerEnum
+				TopLevelClass
+			Field
 
 key:
 1java.util.ResourceBundle  http://lavasoft.blog.51cto.com/62575/184605/

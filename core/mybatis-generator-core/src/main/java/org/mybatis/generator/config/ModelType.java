@@ -24,9 +24,9 @@ import static org.mybatis.generator.internal.util.messages.Messages.getString;
  * @author Jeff Butler
  */
 public enum ModelType {
-    HIERARCHICAL("hierarchical"), //$NON-NLS-1$
-    FLAT("flat"), //$NON-NLS-1$
-    CONDITIONAL("conditional"); //$NON-NLS-1$
+    HIERARCHICAL("hierarchical"), //$NON-NLS-1$//分层的
+    FLAT("flat"), //$NON-NLS-1$ //平滑的
+    CONDITIONAL("conditional"); //$NON-NLS-1$ //有条件的
 
     private final String modelType;
 
