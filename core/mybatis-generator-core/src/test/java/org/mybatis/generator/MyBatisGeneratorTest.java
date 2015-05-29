@@ -16,6 +16,14 @@ public class MyBatisGeneratorTest {
 
 //    @Test(expected=InvalidConfigurationException.class)
 	@Test
+	public void testCust()
+	{
+//		-configfile generatorConfig.xml -overwrite
+		String[] args={"-configfile","D:\\code\\generatorConfig.xml","-overwrite"};
+		new org.mybatis.generator.api.ShellRunner().main(args);
+		
+	}
+	@Test
     public void testGenerateMyBatis3() throws Exception {
         List<String> warnings = new ArrayList<String>();
         ConfigurationParser cp = new ConfigurationParser(warnings);

@@ -1,8 +1,32 @@
-1、程序入口点 org.mybatis.generator.api.ShellRunner
-2、DefaultShellCallback 创建项目目录等文件
-3、Configuration 和ConfigurationParser，Context 解析xml文件
+1  入口点 org.mybatis.generator.api.ShellRunner
+2  DefaultShellCallback 
+3  Configuration ConfigurationParser
+4	Context的generateFiles()方法里通过调用IntrospectedTable的initialize()
+		和其实现类IntrospectedTableMyBatis3Impl的
+			calculateGenerators()、getGeneratedJavaFiles方法生成代码内容
+			
+			
+		  JDBCConnectionConfiguration
+		  SqlMapGeneratorConfiguration`
+		  JavaTypeResolverConfiguration
+		  JavaModelGeneratorConfiguration
+		  JavaClientGeneratorConfiguration
+		  JavaServiceGeneratorConfiguration
+		  TableConfiguration -->ArrayList
+		  JavaFormatter
+		  XmlFormatter
 
+ Context.generateFiles	 
+
+		  IntrospectedTable  	抽象类 	IntrospectedTableMyBatis3Impl 实现类
+		     createJavaClientGenerator()方法  
+		    	   JavaMapperGenerator
+		  	
+		  	
+		  		GeneratedJavaFile  抽象类  
+		  		GeneratedXmlFile	抽象类
+		  		GeneratedFile  
 
 key:
-1、java.util.ResourceBundle使用详解  http://lavasoft.blog.51cto.com/62575/184605/
+1java.util.ResourceBundle  http://lavasoft.blog.51cto.com/62575/184605/
 StringTokenizer

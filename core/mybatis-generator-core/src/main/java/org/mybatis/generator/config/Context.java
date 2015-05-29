@@ -700,7 +700,7 @@ public class Context extends PropertyHolder {
             List<GeneratedJavaFile> generatedJavaFiles,
             List<GeneratedXmlFile> generatedXmlFiles, List<String> warnings)
             throws InterruptedException {
-
+    	
         pluginAggregator = new PluginAggregator();
         for (PluginConfiguration pluginConfiguration : pluginConfigurations) {
             Plugin plugin = ObjectFactory.createPlugin(this,
@@ -712,6 +712,7 @@ public class Context extends PropertyHolder {
                         pluginConfiguration.getConfigurationType(), id));
             }
         }
+        
 
         if (introspectedTables != null) {
             for (IntrospectedTable introspectedTable : introspectedTables) {
@@ -724,17 +725,21 @@ public class Context extends PropertyHolder {
                 generatedXmlFiles.addAll(introspectedTable
                         .getGeneratedXmlFiles());
 
+                /* 暂时注释无用
                 generatedJavaFiles.addAll(pluginAggregator
                         .contextGenerateAdditionalJavaFiles(introspectedTable));
                 generatedXmlFiles.addAll(pluginAggregator
                         .contextGenerateAdditionalXmlFiles(introspectedTable));
+                */
             }
         }
-
+        /* 暂时注释无用
         generatedJavaFiles.addAll(pluginAggregator
                 .contextGenerateAdditionalJavaFiles());
+      
         generatedXmlFiles.addAll(pluginAggregator
                 .contextGenerateAdditionalXmlFiles());
+        */
     }
 
     /**

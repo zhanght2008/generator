@@ -161,6 +161,7 @@ public class IntrospectedTableMyBatis3Impl extends IntrospectedTable {
     }
 
     /**
+     * 根据类型判断生成哪种model
      * Calculate java model generators.
      *
      * @param warnings

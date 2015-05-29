@@ -748,9 +748,9 @@ public abstract class IntrospectedTable {
      */
     public void initialize() {
         calculateJavaClientAttributes();
-        calculateJavaServiceAttributes();
+      //  calculateJavaServiceAttributes();
         calculateModelAttributes();
-        calculateXmlAttributes();
+        //calculateXmlAttributes();
 
 //        KS key:init rules 初始化表是 根据表的配置信息，定义rules，再由rules确定使用哪种Generator 
         if (tableConfiguration.getModelType() == ModelType.HIERARCHICAL) {

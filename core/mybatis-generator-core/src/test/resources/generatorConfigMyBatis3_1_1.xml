@@ -10,21 +10,18 @@
 		defaultModelType="flat">
 		<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
 
-		<jdbcConnection driverClass="org.hsqldb.jdbcDriver"
-			connectionURL="jdbc:hsqldb:mem:aname" userId="sa" />
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/t2?characterEncoding=utf-8" userId="root" password="thomas"/>
 
 		<javaModelGenerator targetPackage="ibatortest.generated.flat.java5.model"
 			targetProject="target/generated-sources/mybatis-generator/mybatis3">
 			<property name="enableSubPackages" value="true" />
 			<property name="trimStrings" value="true" />
 		</javaModelGenerator>
-		<javaServiceGenerator targetPackage="ibatortest.generated.flat.java5.service"
-			targetProject="target/generated-sources/mybatis-generator/mybatis3">
-			
-		</javaServiceGenerator>
+		
 
 
-		<table tableName="FieldsOnly" />
+		<table tableName="user" />
 
 	</context>
 
