@@ -30,6 +30,9 @@
 
 		  IntrospectedTable  	抽象类 	IntrospectedTableMyBatis3Impl 实现类
 		     createJavaClientGenerator()方法  
+		     calculateClientGenerators()
+		     calculateXmlMapperGenerator()		     
+		      新加 calculateServiceGenerators()
 		    	   JavaMapperGenerator
 		  	
 		  	
@@ -44,6 +47,11 @@
 			InnerClass  InnerEnum
 				TopLevelClass
 			Field
+			Method
+			
+			FullyQualifiedJavaType
+			JavaTypeResolver
+			BaseRecordGenerator
 
 key:
 1java.util.ResourceBundle  http://lavasoft.blog.51cto.com/62575/184605/
