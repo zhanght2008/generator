@@ -229,7 +229,10 @@ public class Context extends PropertyHolder {
         if (javaClientGeneratorConfiguration != null) {
             javaClientGeneratorConfiguration.validate(errors, id);
         }
-		
+		if(javaServiceGeneratorConfiguration!=null)
+		{
+			javaServiceGeneratorConfiguration.validate(errors, id);
+		}
         IntrospectedTable it = null;
         try {
         //  KS entry 验证表并确定使用IntrospectedTableMyBatis3Impl实现类
@@ -401,6 +404,10 @@ public class Context extends PropertyHolder {
 
         if (javaClientGeneratorConfiguration != null) {
             xmlElement.addElement(javaClientGeneratorConfiguration.toXmlElement());
+        }
+        if(javaServiceGeneratorConfiguration!=null)
+        {
+        	xmlElement.addElement(javaServiceGeneratorConfiguration.toXmlElement());
         }
 
         for (TableConfiguration tableConfiguration : tableConfigurations) {
@@ -725,21 +732,21 @@ public class Context extends PropertyHolder {
                 generatedXmlFiles.addAll(introspectedTable
                         .getGeneratedXmlFiles());
 
-                /* 暂时注释无用
+               
                 generatedJavaFiles.addAll(pluginAggregator
                         .contextGenerateAdditionalJavaFiles(introspectedTable));
                 generatedXmlFiles.addAll(pluginAggregator
                         .contextGenerateAdditionalXmlFiles(introspectedTable));
-                */
+                
             }
         }
-        /* 暂时注释无用
+       
         generatedJavaFiles.addAll(pluginAggregator
                 .contextGenerateAdditionalJavaFiles());
       
         generatedXmlFiles.addAll(pluginAggregator
                 .contextGenerateAdditionalXmlFiles());
-        */
+       
     }
 
     /**

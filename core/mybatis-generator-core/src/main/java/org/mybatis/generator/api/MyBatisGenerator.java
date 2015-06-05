@@ -230,13 +230,13 @@ public class MyBatisGenerator {
         }
 
         // now run the generates
-        /* 暂时注释无用
+       
         totalSteps = 0;
         for (Context context : contextsToRun) {
             totalSteps += context.getGenerationSteps();
         }
         callback.generationStarted(totalSteps);
-     	*/
+     
         for (Context context : contextsToRun) {
         	//KS entry context.generateFiles 根据Context的introspectedTables变量中的表信息 生成文件内容
             context.generateFiles(callback, generatedJavaFiles,
@@ -244,7 +244,7 @@ public class MyBatisGenerator {
         }
 
         // now save the files 
-        /*暂时注释无用
+     
         callback.saveStarted(generatedXmlFiles.size()
                 + generatedJavaFiles.size());
 
@@ -285,7 +285,7 @@ public class MyBatisGenerator {
                     "Progress.15", targetFile.getName())); //$NON-NLS-1$
             writeFile(targetFile, source, "UTF-8"); //$NON-NLS-1$
         }
-         */
+      
         for (GeneratedJavaFile gjf : generatedJavaFiles) {
             projects.add(gjf.getTargetProject());
 

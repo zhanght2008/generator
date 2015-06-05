@@ -1,6 +1,7 @@
 1  入口点 org.mybatis.generator.api.ShellRunner
 2  DefaultShellCallback 
 3  Configuration ConfigurationParser
+		MyBatisGeneratorConfigurationParser 的parseContext()方法解析
 4	Context的generateFiles()方法里通过调用
 		IntrospectedTable的initialize()
 				设置rules
